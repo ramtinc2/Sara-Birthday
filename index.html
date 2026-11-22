@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08070b">
+<title>سارا | SARA — روز مخصوص تو</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+:root{--pink:#ff8fc8;--pink2:#ffc2e1;--hot:#ff5eae;--ink:#08070b;--panel:#15101a;--line:#59344e;--muted:#cbb8c8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#08070b;color:#fff;font-family:Vazirmatn,Tahoma,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 15% 10%,#42132f55,transparent 35%),radial-gradient(ellipse at 90% 50%,#31152f55,transparent 32%),linear-gradient(150deg,#0b080e,#09070c 55%,#100912)}
+button{font:inherit;cursor:pointer}a{color:inherit;text-decoration:none}.hide{display:none!important}
+#fx{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:20}
+.spark{position:absolute;width:3px;height:3px;border-radius:50%;background:#ffe4f3;box-shadow:0 0 10px 3px #ff8fc8;animation:blink 2.2s infinite alternate}
+.float{position:absolute;bottom:-50px;color:var(--pink);text-shadow:0 0 16px #ff8fc8;animation:floatUp linear forwards}
+@keyframes blink{to{opacity:.18;transform:scale(.5)}}@keyframes floatUp{to{transform:translateY(-115vh) rotate(260deg);opacity:0}}
+@keyframes bob{50%{transform:translateY(-9px) rotate(2deg)}}@keyframes pulse{50%{box-shadow:0 0 36px #ff69b255,0 0 0 10px #ff69b20b}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+@keyframes shine{to{background-position:200% center}}
+.kitty{width:116px;height:104px;filter:drop-shadow(0 8px 18px #ff69b255);animation:bob 4s ease-in-out infinite}
+.kitty.small{width:68px;height:62px}.kitty.tiny{width:48px;height:44px}
+#intro{min-height:100svh;display:grid;place-items:center;padding:24px;position:relative;overflow:hidden}
+#countdown{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:radial-gradient(circle at 50% 48%,#54213f 0,#160d1a 38%,#050408 78%);opacity:0;pointer-events:none;transition:opacity .35s}
+#countdown.show{opacity:1;pointer-events:auto}
+.count-number{font-size:clamp(100px,28vw,220px);font-weight:900;line-height:1;color:#ffd6e9;text-shadow:0 0 22px #ff7dbb,0 0 75px #ff4fa8;animation:countPop .82s cubic-bezier(.2,.8,.2,1) both}
+.count-ring{position:absolute;width:min(72vw,390px);aspect-ratio:1;border:1px solid #ffacd64d;border-radius:50%;box-shadow:0 0 55px #ff69b22b,inset 0 0 55px #ff69b218;animation:ringPulse .9s ease-in-out infinite alternate}
+@keyframes countPop{0%{transform:scale(1.7);opacity:0;filter:blur(12px)}45%{opacity:1}100%{transform:scale(1);opacity:1;filter:blur(0)}}
+@keyframes ringPulse{to{transform:scale(1.12);opacity:.35}}
+.intro-card{width:min(660px,100%);position:relative;text-align:center;padding:42px 24px 35px;border:1px solid #75425f;border-radius:34px;background:linear-gradient(145deg,#1c111eeF,#0e0a12f5);box-shadow:0 25px 100px #0009,0 0 65px #ff70bb1c,inset 0 0 45px #ff9ccc0b;overflow:hidden}
+.intro-card:before{content:"";position:absolute;inset:8px;border:1px solid #ff9ccc24;border-radius:27px;pointer-events:none}
+.intro-kitty{margin:0 auto 10px}.micro{font-size:11px;letter-spacing:4px;color:var(--pink);font-weight:700}
+h1{font-size:clamp(29px,7vw,53px);line-height:1.65;margin:12px 0 4px;font-weight:900}h1 span,.pink{color:var(--pink)}
+.intro-sub{color:var(--muted);line-height:2;margin:7px auto 24px}
+.btn{border:0;border-radius:999px;padding:14px 27px;color:#250d1d;background:linear-gradient(115deg,#ffd1e9,#ff82c3,#ffc1e1);background-size:200% auto;font-weight:800;box-shadow:0 9px 28px #ff70b844;transition:.25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 35px #ff70b866;background-position:right center}
+#site{width:min(100%,1000px);margin:auto;padding:18px 18px 70px}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:8px 4px 20px;gap:12px}
+.logo{font-weight:900;letter-spacing:6px;color:var(--pink);font-size:18px}
+.sound{border:1px solid #68415d;border-radius:30px;background:#1b1220;color:#ffd7eb;padding:9px 14px;font-size:12px}
+.hero{min-height:430px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:40px 22px;overflow:hidden;border:1px solid #69415b;border-radius:32px;background:radial-gradient(circle at 50% 0,#4a1d3c 0,transparent 53%),linear-gradient(145deg,#1b111f,#100c14);box-shadow:0 25px 70px #0006}
+.hero:after{content:"";position:absolute;inset:12px;border:1px solid #ffb4d62b;border-radius:24px;pointer-events:none}
+.hero .kitty{margin-bottom:14px}.hero h2{font-size:clamp(32px,7vw,56px);line-height:1.55;margin:12px 0}.hero p{color:var(--muted);line-height:2;margin:0}.hero .tag{font-size:11px;letter-spacing:4px;color:var(--pink)}
+.scrollhint{margin-top:25px;color:#d7a9c5;font-size:12px}
+section.panel{margin-top:22px;padding:clamp(22px,5vw,38px);border:1px solid #503148;border-radius:28px;background:linear-gradient(145deg,#19121dF5,#100c14F8);box-shadow:0 18px 55px #0005;position:relative;overflow:hidden}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:18px}
+h3{font-size:22px;color:var(--pink2);margin:0;font-weight:800}.section-kicker{color:#9c7c92;font-size:10px;letter-spacing:2px}
+.copy{color:#e9dce6;line-height:2.2;font-size:15px;margin:0}
+.media-title{font-size:clamp(20px,4vw,28px);font-weight:900;color:#fff;margin:0 0 14px}
+.media-title span{color:var(--pink)}
+.video-stage{position:relative;width:min(100%,720px);margin:8px auto 0;padding:10px 0 20px;isolation:isolate}
+.video-frame{position:relative;width:min(68%,450px);margin:0 auto;padding:9px;border-radius:30px;background:linear-gradient(145deg,#ffe0ef 0%,#ff77bb 24%,#44213d 52%,#ffacd4 78%,#fff0f8 100%);box-shadow:0 22px 65px #0009,0 0 42px #ff73bb38;isolation:isolate}
+.video-sticker{position:absolute;z-index:3;width:31%;height:auto;object-fit:contain;filter:drop-shadow(0 12px 15px #0007);pointer-events:none;user-select:none}
+.sticker-one{left:0;top:5%;transform:rotate(-13deg);width:32%}
+.sticker-two{right:0;top:29%;transform:rotate(10deg);width:29%}
+.sticker-three{left:5%;bottom:0;transform:rotate(8deg);width:34%}
+@media(max-width:560px){
+ .video-stage{width:100%;padding:14px 0 22px}
+ .video-frame{width:74%;padding:7px;border-radius:24px}
+ .video-inner{border-radius:17px}
+ .video-sticker{width:34%}
+ .sticker-one{left:-1%;top:7%;width:35%;transform:rotate(-12deg)}
+ .sticker-two{right:-1%;top:34%;width:31%;transform:rotate(10deg)}
+ .sticker-three{left:0;bottom:0;width:36%;transform:rotate(8deg)}
+}
+.video-frame:before{content:"";position:absolute;inset:4px;border:1px solid #fff9;border-radius:25px;pointer-events:none;z-index:2}
+.video-frame:after{content:"";position:absolute;inset:-12px;border:1px solid #ffb5d72b;border-radius:38px;z-index:-1;box-shadow:0 0 45px #ff72bb18}
+.video-inner{border-radius:22px;overflow:hidden;background:#050407;position:relative}
+video{display:block;width:100%;height:min(76vh,720px);object-fit:cover;object-position:center;background:#050407}
+.media-title{ text-shadow:0 0 20px #ff83bd55 }
+.media-caption{font-size:11px;color:#d7b7cb;text-align:center;margin:16px 0 0;letter-spacing:.4px}
+.media-caption{font-size:11px;color:#a990a3;text-align:center;margin:12px 0 0}
+.split{display:grid;grid-template-columns:1fr 150px;align-items:center;gap:18px}
+.stickerbox{display:grid;place-items:center;background:#28172a;border:1px solid #68415d;border-radius:22px;padding:12px;min-height:140px}
+.cake-zone{text-align:center}.cake-emoji{font-size:86px;filter:drop-shadow(0 0 18px #ff8fc8);animation:bob 3s ease-in-out infinite;margin:10px 0}.candles{font-size:22px;letter-spacing:7px;color:#ffc1e1}.hint{color:#bda8b9;font-size:13px;line-height:2}
+.giftrow{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
+.giftbutton{border:0;background:transparent;font-size:82px;filter:drop-shadow(0 0 22px #ff8fc8);transition:.25s;animation:pulse 3s infinite;border-radius:30px}
+.giftbutton:hover{transform:rotate(-9deg) scale(1.1)}
+.reveal{margin:18px auto 0;padding:20px;border:1px dashed #ff9dce;border-radius:20px;background:linear-gradient(135deg,#2b172b,#17101c);color:#ffe5f2;line-height:2;max-width:620px;animation:pop .45s ease both}
+.stars{display:flex;justify-content:center;gap:25px;margin:20px}.star{font-size:38px;color:#8c647f;background:transparent;border:0;transition:.2s;text-shadow:0 0 14px #ff8fc844}.star:hover{transform:scale(1.25) rotate(12deg)}.star.done{color:#ff9dce;text-shadow:0 0 20px #ff78bd}
+.progress{height:7px;background:#322034;border-radius:99px;overflow:hidden;max-width:320px;margin:0 auto}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff69b4,#ffd0e8);transition:width .3s}
+footer{text-align:center;color:#977d91;font-size:12px;line-height:2.2;padding:28px 10px}
+@media(max-width:620px){#site{padding:12px 12px 50px}.hero{min-height:390px}.split{grid-template-columns:1fr}.stickerbox{min-height:100px}.section-head{align-items:flex-start}.kitty{width:98px;height:90px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="kittyFace" viewBox="0 0 160 140">
+ <path d="M28 49 L20 12 Q19 4 28 10 L59 31 Q80 23 101 31 L132 10 Q141 4 140 13 L132 51 Q145 68 142 91 Q138 128 80 130 Q22 128 18 91 Q15 68 28 49Z" fill="#fff8fc" stroke="#f5c4df" stroke-width="3"/>
+ <ellipse cx="54" cy="76" rx="5.5" ry="8" fill="#24202a"/><ellipse cx="106" cy="76" rx="5.5" ry="8" fill="#24202a"/>
+ <ellipse cx="80" cy="88" rx="5" ry="3.5" fill="#ff91c5"/>
+ <path d="M46 91 L20 86 M46 99 L17 101 M114 91 L140 86 M114 99 L143 101" stroke="#302530" stroke-width="2.6" stroke-linecap="round"/>
+ <path d="M116 31 C103 8 124 2 135 20 C154 3 169 21 150 39 L133 51Z" fill="#ff78b9" stroke="#ffe1ef" stroke-width="3"/>
+ <circle cx="133" cy="34" r="5" fill="#ffd5e8"/>
+ <path d="M74 103 Q80 108 86 103" stroke="#d99abb" stroke-width="2" fill="none" stroke-linecap="round"/>
+</symbol></svg>
+<div id="fx"></div>
+<div id="countdown" aria-live="assertive"><div class="count-ring"></div><div class="count-number" id="countNumber">3</div></div>
+<div id="intro">
+ <div class="intro-card">
+  <svg class="kitty intro-kitty"><use href="#kittyFace"/></svg>
+  <div class="micro">SARA'S LITTLE UNIVERSE</div>
+  <h1>یه نفر امروز باید<br><span>لبخند بزنه!</span></h1>
+  <p class="intro-sub">سارا، یه سورپرایز کوچولو برات آماده شده...<br>قول نمی‌دم خیلی عادی باشه 😂</p>
+  <button class="btn" id="enter">بزن بریم ببینیم چی شده 🎀</button>
+  <div style="margin-top:17px;color:#987e92;font-size:11px">بهتره صدای گوشیت روشن باشه ♡</div>
+ </div>
+</div>
+<main id="site" class="hide">
+ <div class="topbar"><div class="logo">S A R A <span style="letter-spacing:0">♡</span></div><button class="sound" id="sound">♫ موسیقی روشنه</button></div>
+ <div class="hero">
+  <svg class="kitty"><use href="#kittyFace"/></svg>
+  <div class="tag">A DAY MADE FOR YOU</div>
+  <h2>سارا، <span class="pink">تولدت مبارک!</span> 🎂</h2>
+  <p>امیدوارم سال جدید زندگیت پر از اتفاقای خوب، خنده‌های واقعی و کلی لحظه قشنگ باشه.<br>امیدوارم همیشه دلت خوش باشه و به چیزایی که دوست داری برسی.</p>
+  <div class="scrollhint">یه کم بیا پایین‌تر، هنوز تموم نشده ↓</div>
+ </div>
+ <section class="panel">
+  <div class="section-head"><h3>گوشه‌ی مخصوص تولد 🎀</h3><span class="section-kicker">SPECIAL GUEST</span></div>
+  <div class="split">
+   <p class="copy">امروز همه‌چی باید صورتی‌تر، براق‌تر و البته یه ذره شلوغ‌تر از همیشه باشه!<br>پس این قسمت رو با دقت نگاه کن... صاحب جشن اینجاست 😼</p>
+   <div class="stickerbox"><svg class="kitty"><use href="#kittyFace"/></svg><span style="color:#ffb4d8;font-size:12px">SARA'S DAY ♡</span></div>
+  </div>
+ </section>
+ <section class="panel">
+  <div class="section-head"><h3 class="media-title"><span>تولد این خره هستا👇😂</span></h3><span class="section-kicker">CAMERA ROLL</span></div>
+  <div class="video-stage">
+   <img class="video-sticker sticker-one" src="assets/sticker-1.png" alt="" aria-hidden="true">
+   <img class="video-sticker sticker-two" src="assets/sticker-2.png" alt="" aria-hidden="true">
+   <img class="video-sticker sticker-three" src="assets/sticker-3.png" alt="" aria-hidden="true">
+   <div class="video-frame"><div class="video-inner">
+    <video controls autoplay playsinline muted loop preload="auto">
+     <source src="assets/sara-video.mp4" type="video/mp4">
+     مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+    </video>
+   </div></div>
+  </div>
+ </section>
+ <section class="panel cake-zone">
+  <div class="section-head"><h3>مراسم رسمی کیک‌بُرون 🎂</h3><span class="section-kicker">MAKE A WISH</span></div>
+  <div class="candles" id="candles">🕯️　🕯️　🕯️</div>
+  <div class="cake-emoji">🎂</div>
+  <p class="hint" id="cakeMsg">یه آرزو کن و شمع‌ها رو خاموش کن؛ تقلب هم نداریم!</p>
+  <button class="btn" id="blow">فوووووت! 💨</button>
+ </section>
+ <section class="panel" style="text-align:center">
+  <div class="section-head"><h3>یه چیزی برات قایم کردم 🎁</h3><span class="section-kicker">SECRET DROP</span></div>
+  <p class="hint">این جعبه رو باز کن؛ قول می‌دم چیز خطرناکی توش نیست 😂</p>
+  <button class="giftbutton" id="gift" aria-label="باز کردن جعبه هدیه">🎁</button>
+  <div id="giftMessage" class="reveal hide">
+   <svg class="kitty small" style="display:block;margin:0 auto 8px"><use href="#kittyFace"/></svg>
+   <strong style="color:#ffadd4">یه حرف کوچولو از طرف من</strong><br>
+   راستی، خیلی خوشحالم که باهات آشنا شدم. امیدوارم بیشتر از اینا بخندیم و خوشحال باش که من اومدم تو زندگیت، بدبخت! 😂
+  </div>
+ </section>
+ 
+ <footer><svg class="kitty tiny" style="display:block;margin:0 auto 8px"><use href="#kittyFace"/></svg>با کلی ذوق و یه ذره شیطنت، مخصوص سارا 🩷<br><span style="letter-spacing:5px">S A R A</span></footer>
+</main>
+<audio id="music" src="assets/faze-love.mp3" loop preload="auto"></audio>
+<script>
+const $=id=>document.getElementById(id), music=$('music');
+let effectsStarted=false;
+function effects(){
+ if(effectsStarted)return;effectsStarted=true;const fx=$('fx');
+ for(let i=0;i<48;i++){const s=document.createElement('i');s.className='spark';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';s.style.animationDuration=(1.4+Math.random()*2.5)+'s';fx.appendChild(s)}
+ setInterval(()=>{const f=document.createElement('span');f.className='float';f.textContent=['♡','✦','🎀','⋆'][Math.floor(Math.random()*4)];f.style.left=Math.random()*100+'%';f.style.fontSize=(15+Math.random()*18)+'px';f.style.animationDuration=(6+Math.random()*5)+'s';fx.appendChild(f);setTimeout(()=>f.remove(),12000)},520);
+}
+$('enter').addEventListener('click',async()=>{
+ const button=$('enter');button.disabled=true;button.style.opacity='.65';
+ const overlay=$('countdown'),number=$('countNumber');overlay.classList.add('show');
+ for(const n of ['3','2','1','0']){
+  number.textContent=n;number.style.animation='none';void number.offsetWidth;number.style.animation='';
+  await new Promise(resolve=>setTimeout(resolve,850));
+ }
+ overlay.classList.remove('show');
+ $('intro').classList.add('hide');$('site').classList.remove('hide');effects();
+ music.volume=.48;music.play().then(()=>$('sound').textContent='♫ موسیقی روشنه').catch(()=>$('sound').textContent='♫ پخش موسیقی');
+ const memoryVideo=document.querySelector('.video-inner video');
+ if(memoryVideo){memoryVideo.muted=true;memoryVideo.play().catch(()=>{});}
+ window.scrollTo(0,0);
+});
+$('sound').addEventListener('click',()=>{if(music.paused){music.play().then(()=>$('sound').textContent='♫ موسیقی روشنه')}else{music.pause();$('sound').textContent='♫ موسیقی خاموشه'}});
+$('blow').addEventListener('click',()=>{$('candles').textContent='✨　✨　✨';$('cakeMsg').textContent='آرزو کردی؟ پس دیگه به زبون نیار که برآورده شه! 🩷';$('blow').textContent='آرزوت قشنگ باشه!'});
+$('gift').addEventListener('click',()=>{$('giftMessage').classList.remove('hide');$('gift').textContent='💝';$('gift').style.transform='scale(1.12) rotate(8deg)'});
+let count=0;document.querySelectorAll('.star').forEach(b=>b.addEventListener('click',()=>{if(b.classList.contains('done'))return;b.classList.add('done');b.textContent='★';count++;$('progress').style.width=(count/3*100)+'%';$('starHint').textContent=count+' از ۳ ستاره پیدا شده';if(count===3){$('finalSurprise').classList.remove('hide');confetti()}}));
+function confetti(){for(let i=0;i<45;i++){const p=document.createElement('span');p.className='float';p.textContent=['✦','♡','🎀'][i%3];p.style.left=Math.random()*100+'%';p.style.fontSize=(16+Math.random()*18)+'px';p.style.animationDuration=(3+Math.random()*3)+'s';$('fx').appendChild(p);setTimeout(()=>p.remove(),7000)}}
+</script>
+</body></html>
